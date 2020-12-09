@@ -21,15 +21,15 @@ class TestLoginFromMainPage():
         page.open()
         page.should_be_login_link()
 
-
-def test_guest_cant_see_product_in_basket_opened_from_main_page(browser):
-    page = MainPage(browser, main_page_link)
-    # Гость открывает главную страницу
-    page.open()
-    # Переходит в корзину по кнопке в шапке сайта
-    page.go_to_basket_page_by_button()
-    basket = BasketPage(browser, main_page_link)
-    # Ожидаем, что в корзине нет товаров
-    basket.is_basket_empty()
-    # Ожидаем, что есть текст о том что корзина пуста
-    basket.should_be_basket_empty_message()
+class TestGuestCanSeeProductInBasketFromMainPage():
+    def test_guest_cant_see_product_in_basket_opened_from_main_page(self, browser):
+        page = MainPage(browser, main_page_link)
+        # Гость открывает главную страницу
+        page.open()
+        # Переходит в корзину по кнопке в шапке сайта
+        page.go_to_basket_page_by_button()
+        basket = BasketPage(browser, main_page_link)
+        # Ожидаем, что в корзине нет товаров
+        basket.is_basket_empty()
+        # Ожидаем, что есть текст о том что корзина пуста
+        basket.should_be_basket_empty_message()
