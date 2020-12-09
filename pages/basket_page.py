@@ -38,5 +38,5 @@ class BasketPage(BasePage):
         excess_text = self.browser.find_element(*BasketPageLocators.CONTINUE_SHOPPING_LINK).text
         all_text = self.browser.find_element(*BasketPageLocators.BASKET_IS_EMPTY).text
         fact_text = all_text.replace(excess_text, "").strip()
-        # выполяенм проверку
+        # выполняем проверку
         assert fact_text == expected_text[language], "Не найдена надпись о том, что корзина пуста!"
